@@ -12,15 +12,16 @@ namespace our
     glm::mat4 Transform::toMat4() const
     {
         glm::mat4 matrix = glm::mat4(1.0f); // Identity matrix
-
         // Apply scaling
         matrix = glm::scale(matrix, scale);
 
         // Apply rotation
-        matrix = matrix * glm::yawPitchRoll(rotation.y, rotation.x, rotation.z);
+        matrix = glm::yawPitchRoll(rotation.y, rotation.x, rotation.z) * matrix;
 
         // Apply translation
-        matrix = glm::translate(matrix, position);
+        glm::mat4 translate = glm::translate(glm::mat4(1.0f), position);
+
+        matrix = translate * matrix;
         // TODO: (Req 3) Write this function
 
         return matrix;
