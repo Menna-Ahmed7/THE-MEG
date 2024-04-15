@@ -73,12 +73,12 @@ namespace our
             float right = aspectRatio * orthoHeight / 2.0f;
             float bottom = -orthoHeight / 2.0f;
             float top = orthoHeight / 2.0f;
-            return glm::ortho(left, right, bottom, top, near, far);
+            return glm::ortho(left, right, bottom, top);
         }
         else
         {
             float aspectRatio = static_cast<float>(viewportSize.x) / viewportSize.y;
-            return glm::perspective(glm::radians(fovY), aspectRatio, near, far);
+            return glm::perspective(fovY, aspectRatio, near, far);
         }
     }
 }
