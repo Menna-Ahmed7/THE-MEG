@@ -43,6 +43,7 @@ namespace our {
     // - "tex" which is a Sampler2D. "texture" and "sampler" will be bound to it.
     // - "alphaThreshold" which defined the alpha limit below which the pixel should be discarded
     // An example where this material can be used is when the object has a texture
+    //
     class TexturedMaterial : public TintedMaterial {
     public:
         Texture2D* texture;
