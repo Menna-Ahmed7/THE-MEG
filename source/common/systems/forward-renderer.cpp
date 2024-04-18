@@ -203,23 +203,34 @@ namespace our {
         // If there is a sky material, draw the sky
         if(this->skyMaterial){
             //TODO: (Req 10) setup the sky material
-            
+            ///////////////////////
+            this->skyMaterial->setup();
+            //////////////////////
             //TODO: (Req 10) Get the camera position
-            
+            ////////////
+            glm::vec3 cameraPosition = eye;
+            ///////////
             //TODO: (Req 10) Create a model matrix for the sy such that it always follows the camera (sky sphere center = camera position)
-            
+            /////////////////////
+            glm::mat4 modelMatrixSky = glm::translate(glm::mat4(1.0f), cameraPosition);
+            /////////////////////
             //TODO: (Req 10) We want the sky to be drawn behind everything (in NDC space, z=1)
             // We can acheive the is by multiplying by an extra matrix after the projection but what values should we put in it?
             glm::mat4 alwaysBehindTransform = glm::mat4(
-                1.0f, 0.0f, 0.0f, 0.0f,
-                0.0f, 1.0f, 0.0f, 0.0f,
-                0.0f, 0.0f, 1.0f, 0.0f,
-                0.0f, 0.0f, 0.0f, 1.0f
+                1.0f, 0.0f, 0.0f, 0.0f, // x        x
+                0.0f, 1.0f,  0.0f, 0.0f,  // y        y
+                0.0f, 0.0f, 0.0f, 1.0f, // z   =    w
+                0.0f, 0.0f, -1.0f, 1.0f // w       w - z
             );
             //TODO: (Req 10) set the "transform" uniform
-            
+            /////////////////////////////////
+            glm::mat4 skyTransform = alwaysBehindTransform * VP * modelMatrixSky; // *beltrteb*
+            this->skyMaterial->shader->set("transform",skyTransform);
+            /////////////////////////////////
             //TODO: (Req 10) draw the sky sphere
-            
+            ///////////////////////////
+            this->skySphere->draw();
+            ///////////////////////////
         }
         //TODO: (Req 9) Draw all the transparent commands
         // Don't forget to set the "transform" uniform to be equal the model-view-projection matrix for each render command
