@@ -23,6 +23,12 @@ namespace our {
             // Hints: the sky will be draw after the opaque objects so we would need depth testing but which depth funtion should we pick?
             // We will draw the sphere from the inside, so what options should we pick for the face culling.
             PipelineState skyPipelineState{};
+            //////////////////////////
+            skyPipelineState.depthTesting.enabled = true;
+            skyPipelineState.faceCulling.enabled = true;
+//            skyPipelineState.depthTesting.function = GL_LEQUAL; // mshfahmo
+            skyPipelineState.faceCulling.culledFace = GL_FRONT; // mshfahmo
+            //////////////////////////
             
             // Load the sky texture (note that we don't need mipmaps since we want to avoid any unnecessary blurring while rendering the sky)
             std::string skyTextureFile = config.value<std::string>("sky", "");
@@ -218,9 +224,9 @@ namespace our {
             // We can acheive the is by multiplying by an extra matrix after the projection but what values should we put in it?
             glm::mat4 alwaysBehindTransform = glm::mat4(
                 1.0f, 0.0f, 0.0f, 0.0f, // x        x
-                0.0f, 1.0f,  0.0f, 0.0f,  // y        y
-                0.0f, 0.0f, 0.0f, 1.0f, // z   =    w
-                0.0f, 0.0f, -1.0f, 1.0f // w       w - z
+                0.0f, 1.0f,  0.0f, 0.0f, // y        y
+                0.0f, 0.0f, 0.0f, 0.0f, // z   =    w        leh by2sm 3la w ????
+                0.0f, 0.0f, 1.0f, 1.0f // w       w - z
             );
             //TODO: (Req 10) set the "transform" uniform
             /////////////////////////////////
