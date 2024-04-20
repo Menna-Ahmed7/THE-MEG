@@ -26,7 +26,7 @@ namespace our {
             //////////////////////////
             skyPipelineState.depthTesting.enabled = true;
             skyPipelineState.faceCulling.enabled = true;
-//            skyPipelineState.depthTesting.function = GL_LEQUAL; // mshfahmo
+           skyPipelineState.depthTesting.function = GL_LEQUAL; // mshfahmo
             skyPipelineState.faceCulling.culledFace = GL_FRONT; // mshfahmo
             //////////////////////////
             
