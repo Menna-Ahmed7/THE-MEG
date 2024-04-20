@@ -63,10 +63,10 @@ namespace our {
             // The depth format can be (Depth component with 24 bits).
             /////////////////////
             glBindFramebuffer(GL_DRAW_FRAMEBUFFER, postprocessFrameBuffer);
-            colorTarget = texture_utils::empty(GL_RGBA8,windowSize);
-            depthTarget = texture_utils::empty(GL_DEPTH_COMPONENT24,windowSize);
+            colorTarget = texture_utils::empty(GL_RGBA8, windowSize);
+            depthTarget = texture_utils::empty(GL_DEPTH_COMPONENT24, windowSize);
             glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER,GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D,colorTarget->getOpenGLName(),0);
-            glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER,GL_DEPTH_COMPONENT24,GL_TEXTURE_2D,depthTarget->getOpenGLName(),0);
+            glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER,GL_DEPTH_ATTACHMENT,GL_TEXTURE_2D,depthTarget->getOpenGLName(),0);
             ////////////////////
             //TODO: (Req 11) Unbind the framebuffer just to be safe
             //////////////////////
@@ -239,7 +239,7 @@ namespace our {
             glm::mat4 alwaysBehindTransform = glm::mat4(
                 1.0f, 0.0f, 0.0f, 0.0f, // x        x
                 0.0f, 1.0f,  0.0f, 0.0f, // y        y
-                0.0f, 0.0f, 0.0f, 0.0f, // z   =    w        leh by2sm 3la w ????
+                0.0f, 0.0f, 0.0f, 0.0f, // z   =    w
                 0.0f, 0.0f, 1.0f, 1.0f // w       w - z
             );
             //TODO: (Req 10) set the "transform" uniform
