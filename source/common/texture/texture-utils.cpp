@@ -8,7 +8,15 @@
 our::Texture2D* our::texture_utils::empty(GLenum format, glm::ivec2 size){
     our::Texture2D* texture = new our::Texture2D();
     //TODO: (Req 11) Finish this function to create an empty texture with the given size and format
-
+    /////////////////
+    texture->bind();
+    GLsizei levels = 1;
+    if (format != GL_DEPTH_COMPONENT24) {
+        levels = static_cast<GLsizei>(std::floor(std::log2(static_cast<float>(std::max(size[0], size[1]))) + 1));
+    }
+    glTexStorage2D(GL_TEXTURE_2D,levels,format,size[0],size[1]);
+//    glBindTexture(GL_TEXTURE_2D, 0);
+    /////////////////
     return texture;
 }
 
@@ -40,7 +48,6 @@ our::Texture2D* our::texture_utils::loadImage(const std::string& filename, bool 
     if (generate_mipmap) {
         glGenerateMipmap(GL_TEXTURE_2D);
     }
-
     ////////////////////////////////////////////////////////////////////
     stbi_image_free(pixels); //Free image data after uploading to GPU
     return texture;
