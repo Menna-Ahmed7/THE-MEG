@@ -57,7 +57,8 @@ namespace our
         glActiveTexture(GL_TEXTURE0); // Activate texture unit
 
         this->texture->bind();
-        sampler->bind(0);
+        if (sampler)
+            sampler->bind(0);
         shader->set("tex", 0);
     }
 
