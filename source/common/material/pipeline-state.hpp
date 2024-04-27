@@ -56,7 +56,8 @@ namespace our
             if (faceCulling.enabled)
             {
                 glEnable(GL_CULL_FACE);
-
+                // CCw means the front face is the face whose points are CCW and the
+                // culled face is the face at the back where its points are CW
                 glFrontFace(faceCulling.frontFace);
                 glCullFace(faceCulling.culledFace);
             }

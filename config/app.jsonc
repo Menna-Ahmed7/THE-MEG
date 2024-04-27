@@ -30,13 +30,16 @@
                 "grass": "assets/textures/grass_ground_d.jpg",
                 "wood": "assets/textures/wood.jpg",
                 "glass": "assets/textures/glass-panels.png",
-                "monkey": "assets/textures/monkey.png"
+                "monkey": "assets/textures/monkey.png",
+                "Shark": "assets/textures/shark.jpg"
             },
             "meshes":{
                 "cube": "assets/models/cube.obj",
                 "monkey": "assets/models/monkey.obj",
                 "plane": "assets/models/plane.obj",
-                "sphere": "assets/models/sphere.obj"
+                "sphere": "assets/models/sphere.obj",
+                "Shark": "assets/models/shark.obj"
+
             },
             "samplers":{
                 "default":{},
@@ -45,6 +48,7 @@
                 }
             },
             "materials":{
+
                 "metal":{
                     "type": "tinted",
                     "shader": "tinted",
@@ -129,30 +133,44 @@
         },
         "world":[
             {
-                "position": [0, 0, 10],
+                "position": [0, 4, -5],
+                // "rotation": [-15, 180, -2],
+                "rotation": [0, 0, 0],
+                // "scale": [3.0, 2.0, 1.0],
                 "components": [
-                    {
-                        "type": "Camera"
-                    },
-                    {
-                        "type": "Free Camera Controller"
-                    }
+                  {
+                    "type": "Camera"
+                  },
+                  {
+                    "type": "Free Camera Controller"
+                  }
+                  ,
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0, -10]
+                  }
+                  
                 ],
+        
                 "children": [
-                    {
-                        "position": [1, -1, -1],
-                        "rotation": [45, 45, 0],
-                        "scale": [0.1, 0.1, 1.0],
-                        "components": [
-                            {
-                                "type": "Mesh Renderer",
-                                "mesh": "cube",
-                                "material": "metal"
-                            }
-                        ]
-                    }
+                  {
+                    "position": [0, -6, -6],
+                    "rotation": [-90, 180, 0],
+                    "scale": [0.05, 0.02, 0.05],
+                    "components": [
+                      {
+                        "type": "Shark"
+                      },
+                      {
+                        "type": "Mesh Renderer",
+                        "mesh": "Shark",    
+                        "material": "monkey"
+                      }
+                    ]
+                   
+                  }
                 ]
-            },
+              },
             {
                 "rotation": [-45, 0, 0],
                 "components": [
@@ -169,9 +187,12 @@
                 ]
             },
             {
+                // "position": [0, -1, -1],
+                // "rotation": [-90, 0, 0],
+                // "scale": [8, 800, 1],
                 "position": [0, -1, 0],
                 "rotation": [-90, 0, 0],
-                "scale": [10, 10, 1],
+        "scale": [8, 800, 1],
                 "components": [
                     {
                         "type": "Mesh Renderer",

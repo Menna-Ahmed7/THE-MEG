@@ -60,6 +60,8 @@ namespace our
 
         // This removes the elements in "markedForRemoval" from the "entities" set.
         // Then each of these elements are deleted.
+        //Entities might have relationships with other entities in the ECS. Deleting an entity immediately could cause problems if:
+//Other entities still refer to it.
         void deleteMarkedEntities()
         {
             // TODO: (Req 8) Remove and delete all the entities that have been marked for removal
