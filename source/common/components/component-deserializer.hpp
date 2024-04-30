@@ -5,8 +5,7 @@
 #include "mesh-renderer.hpp"
 #include "free-camera-controller.hpp"
 #include "movement.hpp"
-// #include "shark.hpp"
-
+#include "shark.hpp"
 
 namespace our
 {
@@ -32,11 +31,11 @@ namespace our
         }
         else if (type == MeshRendererComponent::getID())
             component = entity->addComponent<MeshRendererComponent>();
-        // else if (type == Shark::getID())
-        // {
-        //     component = entity->addComponent<Shark>();
-        // }
-         if (component)
-                component->deserialize(data);
+        else if (type == Shark::getID())
+        {
+            component = entity->addComponent<Shark>();
+        }
+        if (component)
+            component->deserialize(data);
     }
 }

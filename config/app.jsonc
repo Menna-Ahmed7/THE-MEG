@@ -31,14 +31,14 @@
                 "wood": "assets/textures/wood.jpg",
                 "glass": "assets/textures/glass-panels.png",
                 "monkey": "assets/textures/monkey.png",
-                "Shark": "assets/textures/shark.jpg"
+                "shark": "assets/textures/shark.jpg"
             },
             "meshes":{
                 "cube": "assets/models/cube.obj",
                 "monkey": "assets/models/monkey.obj",
                 "plane": "assets/models/plane.obj",
                 "sphere": "assets/models/sphere.obj",
-                "Shark": "assets/models/shark.obj"
+                "shark": "assets/models/shark.obj"
 
             },
             "samplers":{
@@ -163,7 +163,7 @@
                       },
                       {
                         "type": "Mesh Renderer",
-                        "mesh": "Shark",    
+                        "mesh": "shark",    
                         "material": "monkey"
                       }
                     ]
