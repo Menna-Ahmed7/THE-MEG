@@ -10,11 +10,11 @@ namespace our {
     // This component is added as a simple example for how use the ECS framework to implement logic.
     // For more information, see "common/systems/movement.hpp"
     // For a more complex example of how to use the ECS framework, see "free-camera-controller.hpp"
-    class Shark : public Component {
+    class SharkComponent : public Component {
     public:
 
         // The ID of this component type is "RunningObject"
-        static std::string getID() { return "Shark"; }
+        static std::string getID() { return "SharkComponent"; }
 
         void deserialize(const nlohmann::json& data) override;
     };

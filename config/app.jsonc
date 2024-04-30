@@ -159,7 +159,7 @@
                     "scale": [0.05, 0.02, 0.05],
                     "components": [
                       {
-                        "type": "Shark"
+                        "type": "SharkComponent"
                       },
                       {
                         "type": "Mesh Renderer",
