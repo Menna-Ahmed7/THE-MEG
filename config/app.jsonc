@@ -23,7 +23,11 @@
                 "textured":{
                     "vs":"assets/shaders/textured.vert",
                     "fs":"assets/shaders/textured.frag"
-                }
+                },
+                "lighted": {
+                    "vs": "assets/shaders/lighted.vert",
+                    "fs": "assets/shaders/lighted.frag"
+                  }
             },
             "textures":{
                 "moon": "assets/textures/moon.jpg",
@@ -31,7 +35,7 @@
                 "wood": "assets/textures/wood.jpg",
                 "glass": "assets/textures/glass-panels.png",
                 "monkey": "assets/textures/monkey.png",
-                "SharkObject": "assets/textures/fishtexture.jpg"
+                "SharkObject": "assets/textures/fishtexture.jpeg"
             },
             "meshes":{
                 "cube": "assets/models/cube.obj",
@@ -189,7 +193,22 @@
                   }
                 ]
               },
-           
+              {
+                "position": [100, -5, -40],
+                "rotation": [0, 0, 45],
+                "components": [
+                
+                  {
+                      "lightType": "DIRECTIONAL",
+                      "diffuse": [0, 1, 1],
+                      "specular": [1, 1, 1],
+                      "type": "light"
+                    
+                    
+                  }
+               
+                ]
+              },
             {
                 // "position": [0, -1, -1],
                 // "rotation": [-90, 0, 0],

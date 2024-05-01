@@ -6,6 +6,7 @@
 #include "free-camera-controller.hpp"
 #include "movement.hpp"
 #include "sharkComponent.hpp"
+#include "light.hpp"
 
 namespace our
 {
@@ -34,6 +35,9 @@ namespace our
         else if (type == SharkObject::getID())
         {
             component = entity->addComponent<SharkObject>();
+        }
+         else if(type == LightComponent::getID()){
+            component = entity->addComponent<LightComponent>();
         }
         if (component)
             component->deserialize(data);

@@ -144,7 +144,6 @@ namespace our
         
         // read the texture data from a json object
         TexturedMaterial::deserialize(data); 
-
         if(!data.is_object()) return;
 
         // if data contains albedo
