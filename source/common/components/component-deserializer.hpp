@@ -31,9 +31,9 @@ namespace our
         }
         else if (type == MeshRendererComponent::getID())
             component = entity->addComponent<MeshRendererComponent>();
-        else if (type == SharkComponent::getID())
+        else if (type == SharkObject::getID())
         {
-            component = entity->addComponent<SharkComponent>();
+            component = entity->addComponent<SharkObject>();
         }
         if (component)
             component->deserialize(data);

@@ -72,5 +72,114 @@ namespace our
         texture = AssetLoader<Texture2D>::get(data.value("texture", ""));
         sampler = AssetLoader<Sampler>::get(data.value("sampler", ""));
     }
+    // ------------------- light material ------------------- //
+     void LitMaterial::setup() const {
+        // call setup function for textured material
+        TexturedMaterial::setup(); 
+
+        // if it's albedo
+        if (albedo){
+            // Here we set the active texture unit to 0 
+            glActiveTexture(GL_TEXTURE0);
+            // then bind the texture to it
+            albedo->bind();
+            // binds this sampler to texture unit 0
+            sampler->bind(0);
+            // send the unit number 0 to 'albedo' in the uniform variable material
+            shader->set("material.albedo",0);
+        }
+
+        // if it's specular
+        if (specular){
+            // Here we set the active texture unit to 1
+            glActiveTexture(GL_TEXTURE1);  
+            // then bind the texture to it
+            specular->bind();
+            // binds this sampler to texture unit 1
+            sampler->bind(1);
+            // send the unit number 1 to 'specular' in the uniform variable material
+            shader->set("material.specular",1);
+        }
+        
+        // if it's ambient_occlusion
+        if (ambient_occlusion){
+            // Here we set the active texture unit to 2
+            glActiveTexture(GL_TEXTURE2);  
+            // then bind the texture to it
+            ambient_occlusion->bind();
+            // binds this sampler to texture unit 2
+            sampler->bind(2);
+            // send the unit number 2 to 'ambient_occlusion' in the uniform variable material
+            shader->set("material.ambient_occlusion",2);
+        }
+        
+        // if it's roughness
+        if (roughness){
+            // Here we set the active texture unit to 3
+            glActiveTexture(GL_TEXTURE3);  
+            // then bind the texture to it
+            roughness->bind();
+            // binds this sampler to texture unit 3
+            sampler->bind(3);
+            // send the unit number 3 to 'roughness' in the uniform variable material
+            shader->set("material.roughness",3);
+        }
+  
+        // if it's emissive
+        if (emissive){
+            // Here we set the active texture unit to 4
+            glActiveTexture(GL_TEXTURE4); 
+            // then bind the texture to it 
+            emissive->bind();
+            // binds this sampler to texture unit 4
+            sampler->bind(4);
+            // send the unit number 4 to 'emissive' in the uniform variable material
+            shader->set("material.emissive",4);
+        }
+        glActiveTexture(GL_TEXTURE0);
+    }
+
+    // This function read the material data from a json object
+    void LitMaterial::deserialize(const nlohmann::json& data){
+        
+        // read the texture data from a json object
+        TexturedMaterial::deserialize(data); 
+
+        if(!data.is_object()) return;
+
+        // if data contains albedo
+        if(data.contains("albedo")){
+            // get the value of it
+           albedo = AssetLoader<Texture2D>::get(data.value("albedo", ""));
+        }
+
+        // if data contains specular
+        if(data.contains("specular")){
+            // get the value of it
+           specular = AssetLoader<Texture2D>::get(data.value("specular", ""));
+        }
+
+        // if data contains ambient_occlusion
+        if(data.contains("ambient_occlusion")){
+            // get the value of it
+           ambient_occlusion = AssetLoader<Texture2D>::get(data.value("ambient_occlusion", ""));
+        }
+        
+        // if data contains roughness
+        if(data.contains("roughness")){
+            // get the value of it
+           roughness = AssetLoader<Texture2D>::get(data.value("roughness", ""));
+        }
+
+        // if data contains emissive
+        if(data.contains("emissive")){
+            // get the value of it
+           emissive = AssetLoader<Texture2D>::get(data.value("emissive", ""));
+        }
+        
+        // get the value of sampler
+        sampler = AssetLoader<Sampler>::get(data.value("sampler", ""));
+
+    }
 
 }

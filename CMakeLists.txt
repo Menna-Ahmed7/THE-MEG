@@ -82,8 +82,11 @@ set(COMMON_SOURCES
         source/common/systems/forward-renderer.cpp
         source/common/systems/free-camera-controller.hpp
         source/common/systems/movement.hpp
-        source/common/components/SharkComponent.hpp
-        source/common/components/SharkComponent.cpp
+        source/common/components/sharkComponent.hpp
+        source/common/components/sharkComponent.cpp
+        source/common/components/light.hpp
+        source/common/components/light.cpp
+
 )
 
 # Define the directories in which to search for the included headers

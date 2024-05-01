@@ -38,31 +38,31 @@ namespace our
             CameraComponent *camera = nullptr;
             FreeCameraControllerComponent *controller = nullptr;
             // added
-            // SharkComponent *shark = nullptr;
+            SharkObject *shark = nullptr;
 
-            // for (auto entity : world->getEntities())
-            // {
-            //     camera = entity->getComponent<CameraComponent>();
-            //     controller = entity->getComponent<FreeCameraControllerComponent>();
-            //     if (camera && controller)
-            //         break;
-            // }
+            for (auto entity : world->getEntities())
+            {
+                camera = entity->getComponent<CameraComponent>();
+                controller = entity->getComponent<FreeCameraControllerComponent>();
+                if (camera && controller)
+                    break;
+            }
 
-            // // If there is no entity with both a CameraComponent and a FreeCameraControllerComponent, we can do nothing so we return
-            // // if (!(camera && controller))
-            // //     return;
-            // // added
-            // // If there is no entity with Shark, we can do nothing so we return
-            // for (auto entity : world->getEntities())
-            // {
-            //     shark = entity->getComponent<SharkComponent>();
-            //     if (shark)
-            //         break;
-            // }
-            // // If there is no shark , we can do nothing so we return
-            // if (!(shark))
+            // If there is no entity with both a CameraComponent and a FreeCameraControllerComponent, we can do nothing so we return
+            // if (!(camera && controller))
             //     return;
-            // ///////
+            // added
+            // If there is no entity with Shark, we can do nothing so we return
+            for (auto entity : world->getEntities())
+            {
+                shark = entity->getComponent<SharkObject>();
+                if (shark)
+                    break;
+            }
+            // If there is no shark , we can do nothing so we return
+            if (!(shark))
+                return;
+            ///////
 
             // Get the entity that we found via getOwner of camera (we could use controller->getOwner())
             Entity *entity = camera->getOwner();

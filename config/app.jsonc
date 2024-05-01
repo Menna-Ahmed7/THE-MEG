@@ -11,7 +11,7 @@
     },
     "scene": {
         "renderer":{
-            "sky": "assets/textures/sky.jpg",
+            "sky": "assets/textures/sea.jpeg",
             "postprocess": "assets/shaders/postprocess/vignette.frag"
         },
         "assets":{
@@ -31,14 +31,14 @@
                 "wood": "assets/textures/wood.jpg",
                 "glass": "assets/textures/glass-panels.png",
                 "monkey": "assets/textures/monkey.png",
-                "shark": "assets/textures/shark.jpg"
+                "SharkObject": "assets/textures/fishtexture.jpg"
             },
             "meshes":{
                 "cube": "assets/models/cube.obj",
                 "monkey": "assets/models/monkey.obj",
                 "plane": "assets/models/plane.obj",
                 "sphere": "assets/models/sphere.obj",
-                "shark": "assets/models/shark.obj"
+                "SharkObject": "assets/models/shark.obj"
 
             },
             "samplers":{
@@ -48,7 +48,27 @@
                 }
             },
             "materials":{
-
+                "SharkObject": {
+                    "type": "lighted",
+                    "shader": "lighted",
+                    "pipelineState": {
+                      "faceCulling": {
+                        "enabled": false
+                      },
+                      "depthTesting": {
+                        "enabled": true
+                      }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "SharkObject",
+                    "sampler": "default"
+                    ,
+                    "albedo": "SharkObject",
+                    "specular": "white",
+                    "roughness": "galaxy_gradient",
+                    "emissive": "black",
+                    "ambient_occlusion": "white"
+                  },
                 "metal":{
                     "type": "tinted",
                     "shader": "tinted",
@@ -95,7 +115,7 @@
                             "enabled": true
                         }
                     },
-                    "tint": [1, 1, 1, 1],
+                    "tint": [1, 1, 1, 0],
                     "texture": "grass",
                     "sampler": "default"
                 },
@@ -134,9 +154,7 @@
         "world":[
             {
                 "position": [0, 4, -5],
-                // "rotation": [-15, 180, -2],
                 "rotation": [0, 0, 0],
-                // "scale": [3.0, 2.0, 1.0],
                 "components": [
                   {
                     "type": "Camera"
@@ -159,33 +177,19 @@
                     "scale": [0.05, 0.02, 0.05],
                     "components": [
                       {
-                        "type": "SharkComponent"
+                        "type": "SharkObject"
                       },
                       {
                         "type": "Mesh Renderer",
-                        "mesh": "shark",    
-                        "material": "monkey"
+                        "mesh": "SharkObject",    
+                        "material": "SharkObject"
                       }
                     ]
                    
                   }
                 ]
               },
-            {
-                "rotation": [-45, 0, 0],
-                "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "monkey",
-                        "material": "monkey"
-                    },
-                    {
-                        "type": "Movement",
-                        "linearVelocity": [0, 0.1, 0],
-                        "angularVelocity": [0, 45, 0]
-                    }
-                ]
-            },
+           
             {
                 // "position": [0, -1, -1],
                 // "rotation": [-90, 0, 0],
