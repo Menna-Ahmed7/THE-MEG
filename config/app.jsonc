@@ -11,7 +11,7 @@
     },
     "scene": {
         "renderer":{
-            "sky": "assets/textures/sea.jpeg",
+            "sky": "assets/textures/seafloorr.jpg",
             "postprocess": "assets/shaders/postprocess/vignette.frag"
         },
         "assets":{
@@ -35,14 +35,19 @@
                 "wood": "assets/textures/wood.jpg",
                 "glass": "assets/textures/glass-panels.png",
                 "monkey": "assets/textures/monkey.png",
-                "SharkObject": "assets/textures/fishtexture.jpeg"
+                "SharkObject": "assets/textures/fishtexture.jpeg",
+                "SmallFish": "assets/textures/small_fish.jpg",
+                "Rock":"assets/textures/rock.jpg"
+                
             },
             "meshes":{
                 "cube": "assets/models/cube.obj",
                 "monkey": "assets/models/monkey.obj",
                 "plane": "assets/models/plane.obj",
                 "sphere": "assets/models/sphere.obj",
-                "SharkObject": "assets/models/shark.obj"
+                "SharkObject": "assets/models/shark.obj",
+                "SmallFish": "assets/models/small_fish.obj",
+                "Rock":"assets/models/rock.obj"
 
             },
             "samplers":{
@@ -72,6 +77,48 @@
                     "roughness": "galaxy_gradient",
                     "emissive": "black",
                     "ambient_occlusion": "white"
+                  },
+                "SmallFish": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                      "faceCulling": {
+                        "enabled": false
+                      },
+                      "depthTesting": {
+                        "enabled": true
+                      }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "SmallFish",
+                    "sampler": "default"
+                    // ,
+                    // "albedo": "SmallFish",
+                    // "specular": "white",
+                    // "roughness": "galaxy_gradient",
+                    // "emissive": "black",
+                    // "ambient_occlusion": "white"
+                  },
+                  "Rock": {
+                    "type": "textured",
+                    "shader": "textured",
+                    "pipelineState": {
+                      "faceCulling": {
+                        "enabled": false
+                      },
+                      "depthTesting": {
+                        "enabled": true
+                      }
+                    },
+                    "tint": [1, 1, 1, 1],
+                    "texture": "Rock",
+                    "sampler": "default"
+                    // ,
+                    // "albedo": "SmallFish",
+                    // "specular": "white",
+                    // "roughness": "galaxy_gradient",
+                    // "emissive": "black",
+                    // "ambient_occlusion": "white"
                   },
                 "metal":{
                     "type": "tinted",
@@ -154,10 +201,12 @@
                     "sampler": "default"
                 }
             }
+
+
         },
         "world":[
             {
-                "position": [0, 4, -5],
+                "position": [0, 0, 0],
                 "rotation": [0, 0, 0],
                 "components": [
                   {
@@ -166,17 +215,14 @@
                   {
                     "type": "Free Camera Controller"
                   }
-                  ,
-                  {
-                    "type": "Movement",
-                    "linearVelocity": [0, 0, -10]
-                  }
-                  
+                //   {
+                //     "type": "Movement",
+                //     "linearVelocity": [0, 0, -2]
+                //   }
                 ],
-        
                 "children": [
                   {
-                    "position": [0, -6, -6],
+                    "position": [0, -7, -8],
                     "rotation": [-90, 180, 0],
                     "scale": [0.05, 0.02, 0.05],
                     "components": [
@@ -187,7 +233,7 @@
                         "type": "Mesh Renderer",
                         "mesh": "SharkObject",    
                         "material": "SharkObject"
-                      }
+                      } 
                     ]
                    
                   }
@@ -203,7 +249,7 @@
                   {
                     "type": "light",
                     "lightType": "SPOT",
-                    "diffuse": [25, 8, 8],
+                    "diffuse": [10, 8, 8],
                     "specular": [50, 8, 8],
                     "attenuation": [0.0, 1.0, 0.0],
                     "coneAngles.in": 0,
@@ -216,97 +262,228 @@
                   }
                 ]
               },
-            {
-                // "position": [0, -1, -1],
-                // "rotation": [-90, 0, 0],
-                // "scale": [8, 800, 1],
-                "position": [0, -1, 0],
-                "rotation": [-90, 0, 0],
-        "scale": [8, 800, 1],
+              {
+                "position": [0, -6, -50],
+                "rotation": [-180, 180, 200],
+                "scale": [1.5, 1, 1],
                 "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "grass"
-                    }
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  }
+                  ,
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , 2]
+                  }
                 ]
-            },
-            {
-                "position": [0, 1, 2],
-                "rotation": [0, 0, 0],
-                "scale": [2, 2, 2],
+              },
+              {
+                "position": [30, -20, -250],
+                "rotation": [-180, 180, 200],
+                "scale": [1.5, 1, 1],
                 "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "glass"
-                    }
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  }
+                  ,
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , 2]
+                  }
                 ]
-            },
-            {
-                "position": [0, 1, -2],
-                "rotation": [0, 0, 0],
-                "scale": [2, 2, 2],
+              },
+              {
+                "position": [-25, -6, -230],
+                "rotation": [-180, 180, 200],
+                "scale": [1.5, 1, 1],
                 "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "glass"
-                    }
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  }
+                  ,
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , 2]
+                  }
                 ]
-            },
-            {
-                "position": [2, 1, 0],
-                "rotation": [0, 90, 0],
-                "scale": [2, 2, 2],
+              },
+              {
+                "position": [20, -6, -80],
+                "rotation": [-180, 180, 200],
+                "scale": [1.5, 1, 1],
                 "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "glass"
-                    }
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  }
+                  ,
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , 2]
+                  }
                 ]
-            },
-            {
-                "position": [-2, 1, 0],
-                "rotation": [0, 90, 0],
-                "scale": [2, 2, 2],
+              },
+              {
+                "position": [10, -6, -30],
+                "rotation": [-180, 180, 200],
+                "scale": [1.5, 1, 1],
                 "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "glass"
-                    }
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  }
+                  ,
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , 2]
+                  }
                 ]
-            },
-            {
-                "position": [0, 3, 0],
-                "rotation": [90, 0, 0],
-                "scale": [2, 2, 2],
+               
+              },
+              {
+                "position": [-10, -6, -30],
+                "rotation": [-180, 180, 200],
+                "scale": [1.5, 1, 1],
                 "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "plane",
-                        "material": "glass"
-                    }
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  }
+                  ,
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , 2]
+                  }
                 ]
-            },
-            {
-                "position": [0, 10, 0],
-                "rotation": [45, 45, 0],
-                "scale": [5, 5, 5],
+              },
+              {
+                "position": [-35, 10, -150],
+                "rotation": [-180, 180, 200],
+                "scale": [1.5, 1, 1],
                 "components": [
-                    {
-                        "type": "Mesh Renderer",
-                        "mesh": "sphere",
-                        "material": "moon"
-                    },
-                    {
-                        "type": "Movement",
-                        "angularVelocity": [0, 90, 0]
-                    }
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  }
+                  ,
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , 2]
+                  }
                 ]
-            }
+              },
+              {
+                "position": [-10, -6, -300],
+                "rotation": [-180, 180, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  }
+                  ,
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , 4]
+                  }
+                ]
+              },
+              {
+                "position": [15, -6, -300],
+                "rotation": [-180, 180, 200],
+                "scale": [1, 0.5,0.5],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  }
+                  ,
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , 4]
+                  }
+                ]
+              },
+              {
+                "position": [-5, -50, -100],
+                "rotation": [-180, 180, 200],
+                "scale": [0.5, 0.5, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Rock",    
+                    "material": "Rock"
+                  }
+                ]
+              },
+              {
+                "position": [-30, -50, -200],
+                "rotation": [-180, 180, 200],
+                "scale": [0.5, 0.5, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Rock",    
+                    "material": "Rock"
+                  }
+                ]
+              },
+              {
+                "position": [30, -50, -150],
+                "rotation": [-180, 180, 200],
+                "scale": [0.5, 0.5, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Rock",    
+                    "material": "Rock"
+                  }
+                ]
+              },
+              {
+                "position": [0, -6, -200],
+                "rotation": [-180, 180, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , 2]
+                  }
+                ]
+              },
+              {
+                "position": [12, -6, -267],
+                "rotation": [-180, 200, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , 5]
+                  }
+                ]
+              }
         ]
     }
 }

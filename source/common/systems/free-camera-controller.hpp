@@ -120,7 +120,7 @@ namespace our
                 current_sensitivity *= controller->speedupFactor;
 
             // We change the camera position based on the keys WASD/QE
-            // S & W moves the player back and forth
+            // S & W moves the player back and forthqq
             if (app->getKeyboard().isPressed(GLFW_KEY_W))
                 position += front * (deltaTime * current_sensitivity.z);
             if (app->getKeyboard().isPressed(GLFW_KEY_S))
