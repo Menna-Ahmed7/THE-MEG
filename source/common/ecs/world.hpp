@@ -2,6 +2,8 @@
 
 #include <unordered_set>
 #include "entity.hpp"
+#include <iostream>
+using namespace std;
 
 namespace our
 {

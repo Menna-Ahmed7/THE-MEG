@@ -54,6 +54,8 @@ class Playstate: public our::State {
         cameraController.update(&world, (float)deltaTime);
         collisionSystem.update(&world, (float)deltaTime);
 
+        // world.deleteMarkedEntities();
+
         // And finally we use the renderer system to draw the scene
         renderer.render(&world);
 

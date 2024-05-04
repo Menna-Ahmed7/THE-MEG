@@ -45,23 +45,25 @@ namespace our
             // FreeCameraControllerComponent *controller = nullptr;
             for (auto entity : world->getEntities())
             {
-                cameraComponent = entity->getComponent<CameraComponent>();
-                if(cameraComponent) break;
+                sharkComponent = entity->getComponent<SharkObject>();
+                if(sharkComponent) break;
             }
-            Entity *cameraEntity = cameraComponent->getOwner();
-            // glm::vec3 world_position = cameraEntity->getLocalToWorldMatrix()*glm::vec4(0,0,0,1);
-            // glm::vec3 position = lightSources[i]->getOwner()->getLocalToWorldMatrix()*glm::vec4(0,0,0,1);
-            glm::vec3& position = cameraEntity->localTransform.position;
-            // cout << "World_Pos" << world_position.x << world_position.y << world_position.z << endl;
-            cout << "posX" << position.x << "posY"<<  position.y << "posZ" << position.z << endl;
-
+            Entity *SharkEntity = sharkComponent->getOwner();
+            glm::vec3& Sharkposition = SharkEntity->localTransform.position;
+            cout << "posX " << Sharkposition.x << "posY "<<  Sharkposition.y << "posZ " << Sharkposition.z << endl;
             //Done : Check for collision components
             for(auto entity : world->getEntities()){
                  collisionComponent = entity->getComponent<CollisionComponent>();
                  if(!collisionComponent) continue;
                 glm::vec3& CollisionEntityposition = entity->localTransform.position;
-                // if(abs(CollisionEntityposition.z - position.z) < 0.5)
-                cout << "FishposX " << CollisionEntityposition.x << "FishposY "<<  CollisionEntityposition.y << "FishposZ" << CollisionEntityposition.z << endl;
+                if(abs(CollisionEntityposition.z - Sharkposition.z) < 0.5 && abs(CollisionEntityposition.y - Sharkposition.y) < 2 && abs(CollisionEntityposition.x- Sharkposition.x) < 1 )
+                {
+                     cout<< "Collision" << endl ;
+                     world->markForRemoval(collisionComponent->getOwner());
+                     cout<<"marked"<<endl;
+                }
+               
+                     cout << "FishposX " << CollisionEntityposition.x << "FishposY "<<  CollisionEntityposition.y << "FishposZ" << CollisionEntityposition.z << endl;
             }
 
       
