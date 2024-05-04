@@ -7,6 +7,7 @@
 #include "movement.hpp"
 #include "sharkComponent.hpp"
 #include "light.hpp"
+#include "collision.hpp"
 
 namespace our
 {
@@ -38,6 +39,9 @@ namespace our
         }
          else if(type == LightComponent::getID()){
             component = entity->addComponent<LightComponent>();
+        }
+        else if(type == CollisionComponent::getID()){
+            component = entity->addComponent<CollisionComponent>();
         }
         if (component)
             component->deserialize(data);

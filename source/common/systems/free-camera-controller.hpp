@@ -53,15 +53,15 @@ namespace our
             //     return;
             // added
             // If there is no entity with Shark, we can do nothing so we return
-            for (auto entity : world->getEntities())
-            {
-                shark = entity->getComponent<SharkObject>();
-                if (shark)
-                    break;
-            }
-            // If there is no shark , we can do nothing so we return
-            if (!(shark))
-                return;
+            // for (auto entity : world->getEntities())
+            // {
+            //     shark = entity->getComponent<SharkObject>();
+            //     if (shark)
+            //         break;
+            // }
+            // // If there is no shark , we can do nothing so we return
+            // if (!(shark))
+            //     return;
             ///////
 
             // Get the entity that we found via getOwner of camera (we could use controller->getOwner())

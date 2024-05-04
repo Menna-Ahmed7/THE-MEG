@@ -41,6 +41,17 @@ namespace our
             return entities;
         }
 
+        //Done: This Function Returns Required Entity By Name 
+        Entity *GetEntity(std::string name)
+        {
+            for (auto &Entity : entities)
+            {
+                if (Entity->name == name)
+                    return Entity;
+            }
+            return NULL;
+        }
+
         // This marks an entity for removal by adding it to the "markedForRemoval" set.
         // The elements in the "markedForRemoval" set will be removed and deleted when "deleteMarkedEntities" is called.
         void markForRemoval(Entity *entity)

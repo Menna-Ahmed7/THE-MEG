@@ -233,7 +233,7 @@
                         "type": "Mesh Renderer",
                         "mesh": "SharkObject",    
                         "material": "SharkObject"
-                      } 
+                      }
                     ]
                    
                   }
@@ -262,6 +262,7 @@
                   }
                 ]
               },
+              //SmallFish1
               {
                 "position": [0, -6, -50],
                 "rotation": [-180, 180, 200],
@@ -276,214 +277,278 @@
                   {
                     "type": "Movement",
                     "linearVelocity": [0, 0 , 2]
+                  },
+                  {
+                    "type": "Collision",
+                    "collisionType" : "reward"
                   }
                 ]
               },
-              {
-                "position": [30, -20, -250],
-                "rotation": [-180, 180, 200],
-                "scale": [1.5, 1, 1],
-                "components": [
-                  {
-                    "type": "Mesh Renderer",
-                    "mesh": "SmallFish",    
-                    "material": "SmallFish"
-                  }
-                  ,
-                  {
-                    "type": "Movement",
-                    "linearVelocity": [0, 0 , 2]
-                  }
-                ]
-              },
-              {
-                "position": [-25, -6, -230],
-                "rotation": [-180, 180, 200],
-                "scale": [1.5, 1, 1],
-                "components": [
-                  {
-                    "type": "Mesh Renderer",
-                    "mesh": "SmallFish",    
-                    "material": "SmallFish"
-                  }
-                  ,
-                  {
-                    "type": "Movement",
-                    "linearVelocity": [0, 0 , 2]
-                  }
-                ]
-              },
-              {
-                "position": [20, -6, -80],
-                "rotation": [-180, 180, 200],
-                "scale": [1.5, 1, 1],
-                "components": [
-                  {
-                    "type": "Mesh Renderer",
-                    "mesh": "SmallFish",    
-                    "material": "SmallFish"
-                  }
-                  ,
-                  {
-                    "type": "Movement",
-                    "linearVelocity": [0, 0 , 2]
-                  }
-                ]
-              },
-              {
-                "position": [10, -6, -30],
-                "rotation": [-180, 180, 200],
-                "scale": [1.5, 1, 1],
-                "components": [
-                  {
-                    "type": "Mesh Renderer",
-                    "mesh": "SmallFish",    
-                    "material": "SmallFish"
-                  }
-                  ,
-                  {
-                    "type": "Movement",
-                    "linearVelocity": [0, 0 , 2]
-                  }
-                ]
+              //               //SmallFish2
+              // {
+              //   "position": [30, -20, -250],
+              //   "rotation": [-180, 180, 200],
+              //   "scale": [1.5, 1, 1],
+              //   "components": [
+              //     {
+              //       "type": "Mesh Renderer",
+              //       "mesh": "SmallFish",    
+              //       "material": "SmallFish"
+              //     }
+              //     ,
+              //     {
+              //       "type": "Movement",
+              //       "linearVelocity": [0, 0 , 2]
+              //     },
+              //     {
+              //       "type": "Collision",
+              //       "collisionType" : "reward"
+              //     }
+              //   ]
+              // },
+              //               //SmallFish3
+              // {
+              //   "position": [-25, -6, -230],
+              //   "rotation": [-180, 180, 200],
+              //   "scale": [1.5, 1, 1],
+              //   "components": [
+              //     {
+              //       "type": "Mesh Renderer",
+              //       "mesh": "SmallFish",    
+              //       "material": "SmallFish"
+              //     }
+              //     ,
+              //     {
+              //       "type": "Movement",
+              //       "linearVelocity": [0, 0 , 2]
+              //     },
+              //     {
+              //       "type": "Collision",
+              //       "collisionType" : "reward"
+              //     }
+              //   ]
+              // },
+
+              //               //SmallFish4
+              // {
+              //   "position": [20, -6, -80],
+              //   "rotation": [-180, 180, 200],
+              //   "scale": [1.5, 1, 1],
+              //   "components": [
+              //     {
+              //       "type": "Mesh Renderer",
+              //       "mesh": "SmallFish",    
+              //       "material": "SmallFish"
+              //     }
+              //     ,
+              //     {
+              //       "type": "Movement",
+              //       "linearVelocity": [0, 0 , 2]
+              //     },
+              //     {
+              //       "type": "Collision",
+              //       "collisionType" : "reward"
+              //     }
+              //   ]
+              // },
+              //               //SmallFish5
+              // {
+              //   "position": [10, -6, -30],
+              //   "rotation": [-180, 180, 200],
+              //   "scale": [1.5, 1, 1],
+              //   "components": [
+              //     {
+              //       "type": "Mesh Renderer",
+              //       "mesh": "SmallFish",    
+              //       "material": "SmallFish"
+              //     }
+              //     ,
+              //     {
+              //       "type": "Movement",
+              //       "linearVelocity": [0, 0 , 2]
+              //     },
+              //     {
+              //       "type": "Collision",
+              //       "collisionType" : "reward"
+              //     }
+              //   ]
                
-              },
-              {
-                "position": [-10, -6, -30],
-                "rotation": [-180, 180, 200],
-                "scale": [1.5, 1, 1],
-                "components": [
-                  {
-                    "type": "Mesh Renderer",
-                    "mesh": "SmallFish",    
-                    "material": "SmallFish"
-                  }
-                  ,
-                  {
-                    "type": "Movement",
-                    "linearVelocity": [0, 0 , 2]
-                  }
-                ]
-              },
-              {
-                "position": [-35, 10, -150],
-                "rotation": [-180, 180, 200],
-                "scale": [1.5, 1, 1],
-                "components": [
-                  {
-                    "type": "Mesh Renderer",
-                    "mesh": "SmallFish",    
-                    "material": "SmallFish"
-                  }
-                  ,
-                  {
-                    "type": "Movement",
-                    "linearVelocity": [0, 0 , 2]
-                  }
-                ]
-              },
-              {
-                "position": [-10, -6, -300],
-                "rotation": [-180, 180, 200],
-                "scale": [1.5, 1, 1],
-                "components": [
-                  {
-                    "type": "Mesh Renderer",
-                    "mesh": "SmallFish",    
-                    "material": "SmallFish"
-                  }
-                  ,
-                  {
-                    "type": "Movement",
-                    "linearVelocity": [0, 0 , 4]
-                  }
-                ]
-              },
-              {
-                "position": [15, -6, -300],
-                "rotation": [-180, 180, 200],
-                "scale": [1, 0.5,0.5],
-                "components": [
-                  {
-                    "type": "Mesh Renderer",
-                    "mesh": "SmallFish",    
-                    "material": "SmallFish"
-                  }
-                  ,
-                  {
-                    "type": "Movement",
-                    "linearVelocity": [0, 0 , 4]
-                  }
-                ]
-              },
-              {
-                "position": [-5, -50, -100],
-                "rotation": [-180, 180, 200],
-                "scale": [0.5, 0.5, 1],
-                "components": [
-                  {
-                    "type": "Mesh Renderer",
-                    "mesh": "Rock",    
-                    "material": "Rock"
-                  }
-                ]
-              },
-              {
-                "position": [-30, -50, -200],
-                "rotation": [-180, 180, 200],
-                "scale": [0.5, 0.5, 1],
-                "components": [
-                  {
-                    "type": "Mesh Renderer",
-                    "mesh": "Rock",    
-                    "material": "Rock"
-                  }
-                ]
-              },
-              {
-                "position": [30, -50, -150],
-                "rotation": [-180, 180, 200],
-                "scale": [0.5, 0.5, 1],
-                "components": [
-                  {
-                    "type": "Mesh Renderer",
-                    "mesh": "Rock",    
-                    "material": "Rock"
-                  }
-                ]
-              },
-              {
-                "position": [0, -6, -200],
-                "rotation": [-180, 180, 200],
-                "scale": [1.5, 1, 1],
-                "components": [
-                  {
-                    "type": "Mesh Renderer",
-                    "mesh": "SmallFish",    
-                    "material": "SmallFish"
-                  },
-                  {
-                    "type": "Movement",
-                    "linearVelocity": [0, 0 , 2]
-                  }
-                ]
-              },
-              {
-                "position": [12, -6, -267],
-                "rotation": [-180, 200, 200],
-                "scale": [1.5, 1, 1],
-                "components": [
-                  {
-                    "type": "Mesh Renderer",
-                    "mesh": "SmallFish",    
-                    "material": "SmallFish"
-                  },
-                  {
-                    "type": "Movement",
-                    "linearVelocity": [0, 0 , 5]
-                  }
-                ]
-              }
+              // },
+              //               //SmallFish6
+
+              // {
+              //   "position": [-10, -6, -30],
+              //   "rotation": [-180, 180, 200],
+              //   "scale": [1.5, 1, 1],
+              //   "components": [
+              //     {
+              //       "type": "Mesh Renderer",
+              //       "mesh": "SmallFish",    
+              //       "material": "SmallFish"
+              //     }
+              //     ,
+              //     {
+              //       "type": "Movement",
+              //       "linearVelocity": [0, 0 , 2]
+              //     },
+              //     {
+              //       "type": "Collision",
+              //       "collisionType" : "reward"
+              //     }
+              //   ]
+              // },
+              //               //SmallFish7
+              // {
+              //   "position": [-35, 10, -150],
+              //   "rotation": [-180, 180, 200],
+              //   "scale": [1.5, 1, 1],
+              //   "components": [
+              //     {
+              //       "type": "Mesh Renderer",
+              //       "mesh": "SmallFish",    
+              //       "material": "SmallFish"
+              //     }
+              //     ,
+              //     {
+              //       "type": "Movement",
+              //       "linearVelocity": [0, 0 , 2]
+              //     },
+              //     {
+              //       "type": "Collision",
+              //       "collisionType" : "reward"
+              //     }
+              //   ]
+              // },
+              //               //SmallFish8
+              // {
+              //   "position": [-10, -6, -300],
+              //   "rotation": [-180, 180, 200],
+              //   "scale": [1.5, 1, 1],
+              //   "components": [
+              //     {
+              //       "type": "Mesh Renderer",
+              //       "mesh": "SmallFish",    
+              //       "material": "SmallFish"
+              //     }
+              //     ,
+              //     {
+              //       "type": "Movement",
+              //       "linearVelocity": [0, 0 , 4]
+              //     },{
+              //       "type": "Collision",
+              //       "collisionType" : "reward"
+              //     }
+              //   ]
+              // },
+              //               //SmallFish9
+              // {
+              //   "position": [15, -6, -300],
+              //   "rotation": [-180, 180, 200],
+              //   "scale": [1, 0.5,0.5],
+              //   "components": [
+              //     {
+              //       "type": "Mesh Renderer",
+              //       "mesh": "SmallFish",    
+              //       "material": "SmallFish"
+              //     }
+              //     ,
+              //     {
+              //       "type": "Movement",
+              //       "linearVelocity": [0, 0 , 4]
+              //     },{
+              //       "type": "Collision",
+              //       "collisionType" : "reward"
+              //     }
+              //   ]
+              // },
+                            
+              //               //SmallFish10
+              // {
+              //   "position": [0, -6, -200],
+              //   "rotation": [-180, 180, 200],
+              //   "scale": [1.5, 1, 1],
+              //   "components": [
+              //     {
+              //       "type": "Mesh Renderer",
+              //       "mesh": "SmallFish",    
+              //       "material": "SmallFish"
+              //     },
+              //     {
+              //       "type": "Movement",
+              //       "linearVelocity": [0, 0 , 2]
+              //     },{
+              //       "type": "Collision",
+              //       "collisionType" : "reward"
+              //     }
+              //   ]
+              // },
+              //               //SmallFish11
+              // {
+              //   "position": [12, -6, -267],
+              //   "rotation": [-180, 200, 200],
+              //   "scale": [1.5, 1, 1],
+              //   "components": [
+              //     {
+              //       "type": "Mesh Renderer",
+              //       "mesh": "SmallFish",    
+              //       "material": "SmallFish"
+              //     },
+              //     {
+              //       "type": "Movement",
+              //       "linearVelocity": [0, 0 , 5]
+              //     },{
+              //       "type": "Collision",
+              //       "collisionType" : "reward"
+              //     }
+              //   ]
+              // },//Rock1
+              // {
+              //   "position": [-5, -50, -100],
+              //   "rotation": [-180, 180, 200],
+              //   "scale": [0.5, 0.5, 1],
+              //   "components": [
+              //     {
+              //       "type": "Mesh Renderer",
+              //       "mesh": "Rock",    
+              //       "material": "Rock"
+              //     },{
+              //       "type": "Collision",
+              //       "collisionType" : "penalty"
+              //     }
+              //   ]
+              // },
+              // //Rock2
+              // {
+              //   "position": [-30, -50, -150],
+              //   "rotation": [-180, 180, 200],
+              //   "scale": [0.5, 0.5, 1],
+              //   "components": [
+              //     {
+              //       "type": "Mesh Renderer",
+              //       "mesh": "Rock",    
+              //       "material": "Rock"
+              //     },{
+              //       "type": "Collision",
+              //       "collisionType" : "penalty"
+              //     }
+              //   ]
+              // },
+              // //Rock3
+              // {
+              //   "position": [30, -50, -150],
+              //   "rotation": [-180, 180, 200],
+              //   "scale": [0.5, 0.5, 1],
+              //   "components": [
+              //     {
+              //       "type": "Mesh Renderer",
+              //       "mesh": "Rock",    
+              //       "material": "Rock"
+              //     },{
+              //       "type": "Collision",
+              //       "collisionType" : "penalty"
+              //     }
+              //   ]
+              // }
         ]
     }
 }
