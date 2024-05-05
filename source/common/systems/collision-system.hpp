@@ -26,6 +26,7 @@ namespace our
     {
         Application *app;          // The application in which the state runs
         bool mouse_locked = false; // Is the mouse locked
+        int health = 0;
 
     public:
         // When a state enters, it should call this function and give it the pointer to the application
@@ -35,38 +36,44 @@ namespace our
         }
 
         // This should be called every frame to update all entities containing a FreeCameraControllerComponent
-        void update(World *world, float deltaTime)
+        int update(World *world, float deltaTime)
         {
-            cout<<"I enetered";
             SharkObject *sharkComponent = nullptr;
-
-            CameraComponent *cameraComponent = nullptr;
             CollisionComponent *collisionComponent = nullptr;
-            // FreeCameraControllerComponent *controller = nullptr;
             for (auto entity : world->getEntities())
             {
                 sharkComponent = entity->getComponent<SharkObject>();
                 if(sharkComponent) break;
             }
             Entity *SharkEntity = sharkComponent->getOwner();
-            glm::vec3& Sharkposition = SharkEntity->localTransform.position;
-            cout << "posX " << Sharkposition.x << "posY "<<  Sharkposition.y << "posZ " << Sharkposition.z << endl;
+            glm::vec3& Sharkposition = glm::vec3(SharkEntity->getLocalToWorldMatrix()*glm:: vec4(SharkEntity->localTransform.position,1.0));
+            // cout << "posX " << Sharkposition.x << " posY "<<  Sharkposition.y << " posZ " << Sharkposition.z << endl;
             //Done : Check for collision components
             for(auto entity : world->getEntities()){
-                 collisionComponent = entity->getComponent<CollisionComponent>();
-                 if(!collisionComponent) continue;
+                collisionComponent = entity->getComponent<CollisionComponent>();
+                if(!collisionComponent) continue;
                 glm::vec3& CollisionEntityposition = entity->localTransform.position;
-                if(abs(CollisionEntityposition.z - Sharkposition.z) < 0.5 && abs(CollisionEntityposition.y - Sharkposition.y) < 2 && abs(CollisionEntityposition.x- Sharkposition.x) < 1 )
+                // cout << "CollisionposX " << CollisionEntityposition.x << " ColliionposY "<<  CollisionEntityposition.y << " CollisionposZ " << CollisionEntityposition.z << endl;
+                if(abs(CollisionEntityposition.z - Sharkposition.z) < 4 
+                && abs(CollisionEntityposition.y - Sharkposition.y) < 4 
+                && abs(CollisionEntityposition.x- Sharkposition.x) < 2 )
                 {
                      cout<< "Collision" << endl ;
-                     world->markForRemoval(collisionComponent->getOwner());
-                     cout<<"marked"<<endl;
+                     cout <<"entity name : " << entity->name << endl;
+                     world->markForRemoval(entity);
+                     world->deleteMarkedEntities();
+                    if (collisionComponent->collisionType=="penalty")
+                    {
+                        health--;
+                    }
+                    else if (collisionComponent->collisionType=="reward")
+                    {
+                        health++;
+                    }
+                    break;
                 }
-               
-                     cout << "FishposX " << CollisionEntityposition.x << "FishposY "<<  CollisionEntityposition.y << "FishposZ" << CollisionEntityposition.z << endl;
-            }
-
-      
+            }   
+            return health;
         }
 
         // When the state exits, it should call this function to ensure the mouse is unlocked

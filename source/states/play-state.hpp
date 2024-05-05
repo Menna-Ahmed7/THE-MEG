@@ -17,6 +17,7 @@ class Playstate: public our::State {
     our::FreeCameraControllerSystem cameraController;
     our::MovementSystem movementSystem;
     our::CollisionControllerSystem collisionSystem;
+    int health;
 
     void onInitialize() override {
         
@@ -52,12 +53,19 @@ class Playstate: public our::State {
         // Here, we just run a bunch of systems to control the world logic
         movementSystem.update(&world, (float)deltaTime);
         cameraController.update(&world, (float)deltaTime);
-        collisionSystem.update(&world, (float)deltaTime);
+        health = collisionSystem.update(&world, (float)deltaTime);
+        // cout << "My health is: " << health << endl ;
 
-        // world.deleteMarkedEntities();
+        //Todo Later : When health = -1 end game
+        // if (health == 10)
+        //     getApp()->changeState("win");
+        // else if (health == -1)
+        //     getApp()->changeState("end");
+
 
         // And finally we use the renderer system to draw the scene
         renderer.render(&world);
+
 
         // Get a reference to the keyboard object
         auto& keyboard = getApp()->getKeyboard();
@@ -66,6 +74,27 @@ class Playstate: public our::State {
             // If the escape  key is pressed in this frame, go to the play state
             getApp()->changeState("menu");
         }
+    }
+
+    void onImmediateGui() override
+    {
+        ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
+        // Box 1
+        ImGui::SetNextWindowPos(ImVec2(20, 20)); // Set position of Box 1
+        ImGui::Begin("HealthName", 0, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoBackground);
+        ImGui::SetWindowSize(ImVec2(250, 80));
+        ImGui::SetWindowFontScale(3.0f);
+        ImGui::TextColored(ImVec4(1.0, 1.0, 1.0, 1.0), "Your Health: ");
+        ImGui::End();
+
+        // // Box 2
+        ImGui::SetNextWindowPos(ImVec2(270, 20)); // Set position of Box 2
+        ImGui::Begin("HealthValue", 0, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoBackground);
+        ImGui::SetWindowSize(ImVec2(100, 50));
+        ImGui::SetWindowFontScale(3.0f);
+        ImGui::TextColored(ImVec4(1.0, 1.0, 1.0, 1.0), std::to_string(health).c_str());
+        ImGui::End();
+        ImGui::PopStyleColor();
     }
 
     void onDestroy() override {

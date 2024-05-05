@@ -176,9 +176,9 @@ namespace our {
 
         //TODO: (Req 9) Get the camera ViewProjection matrix and store it in VP
         ///////////////
-        auto P = camera->getProjectionMatrix(windowSize);
-        auto V = camera->getViewMatrix();
-        auto VP = P * V;
+        glm::mat4 P = camera->getProjectionMatrix(windowSize);
+        glm::mat4 V = camera->getViewMatrix();
+        glm::mat4 VP =  P*V ;
         ///////////////
         //TODO: (Req 9) Set the OpenGL viewport using viewportStart and viewportSize
         /////////////////
