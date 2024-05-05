@@ -637,6 +637,26 @@
                   }
                 ]
               }
+              ,{
+                "name" : "angler-fish",
+                "position": [0, -20, -70],
+                "rotation": [-180, 100, 200],
+                "scale": [3.5, 2, 3],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Angler",    
+                    "material": "Angler"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , 5]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "penalty"
+                  }
+                ]
+              }
               
              
         ]
