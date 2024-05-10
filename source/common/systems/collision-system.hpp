@@ -46,9 +46,7 @@ namespace our
                 if(sharkComponent) break;
             }
             Entity *SharkEntity = sharkComponent->getOwner();
-
-            //Shark Position
-            glm::vec3& Sharkposition = glm::vec3(SharkEntity->getLocalToWorldMatrix()*glm:: vec4(SharkEntity->localTransform.position,1.0));
+            glm::vec3 Sharkposition = glm::vec3(SharkEntity->getLocalToWorldMatrix() * glm::vec4(SharkEntity->localTransform.position, 1.0f));
             // cout << "posX " << Sharkposition.x << " posY "<<  Sharkposition.y << " posZ " << Sharkposition.z << endl;
             //Done : Check for collision components
             for(auto entity : world->getEntities()){
@@ -71,9 +69,6 @@ namespace our
                         SharkEntity->localTransform.scale[0] = SharkEntity->localTransform.scale[0]*1.1 ;
                         SharkEntity->localTransform.scale[1] = SharkEntity->localTransform.scale[1]*1.1 ;
                         SharkEntity->localTransform.scale[2] = SharkEntity->localTransform.scale[2]*1.1 ;
-                    
-                       
-                        
                     }
                     else if (collisionComponent->collisionType=="penalty")
                     {
