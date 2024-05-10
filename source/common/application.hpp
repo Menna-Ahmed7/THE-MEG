@@ -13,6 +13,9 @@
 #include "input/keyboard.hpp"
 #include "input/mouse.hpp"
 
+#include<iostream>
+using namespace std;
+
 namespace our {
 
     // This struct handles window attributes: (title, size, isFullscreen).

@@ -46,6 +46,8 @@ namespace our
                 if(sharkComponent) break;
             }
             Entity *SharkEntity = sharkComponent->getOwner();
+
+            //Shark Position
             glm::vec3& Sharkposition = glm::vec3(SharkEntity->getLocalToWorldMatrix()*glm:: vec4(SharkEntity->localTransform.position,1.0));
             // cout << "posX " << Sharkposition.x << " posY "<<  Sharkposition.y << " posZ " << Sharkposition.z << endl;
             //Done : Check for collision components
@@ -62,13 +64,24 @@ namespace our
                      cout <<"entity name : " << entity->name << endl;
                      world->markForRemoval(entity);
                      world->deleteMarkedEntities();
-                    if (collisionComponent->collisionType=="penalty")
-                    {
-                        health--;
-                    }
-                    else if (collisionComponent->collisionType=="reward")
+                    if (collisionComponent->collisionType=="reward")
                     {
                         health++;
+                        //Make Shark Smaller
+                        SharkEntity->localTransform.scale[0] = SharkEntity->localTransform.scale[0]*1.1 ;
+                        SharkEntity->localTransform.scale[1] = SharkEntity->localTransform.scale[1]*1.1 ;
+                        SharkEntity->localTransform.scale[2] = SharkEntity->localTransform.scale[2]*1.1 ;
+                    
+                       
+                        
+                    }
+                    else if (collisionComponent->collisionType=="penalty")
+                    {
+                        health--;
+                        //Make Shark Smaller
+                        SharkEntity->localTransform.scale[0] = SharkEntity->localTransform.scale[0]*0.9 ;
+                        SharkEntity->localTransform.scale[1] = SharkEntity->localTransform.scale[1]*0.9 ;
+                        SharkEntity->localTransform.scale[2] = SharkEntity->localTransform.scale[2]*0.9 ;
                     }
                     break;
                 }

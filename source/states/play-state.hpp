@@ -9,6 +9,9 @@
 #include <asset-loader.hpp>
 #include <systems/collision-system.hpp>
 
+#include<iostream>
+using namespace std;
+
 // This state shows how to use the ECS framework and deserialization.
 class Playstate: public our::State {
 
@@ -54,13 +57,13 @@ class Playstate: public our::State {
         movementSystem.update(&world, (float)deltaTime);
         cameraController.update(&world, (float)deltaTime);
         health = collisionSystem.update(&world, (float)deltaTime);
-        // cout << "My health is: " << health << endl ;
-
-        //Todo Later : When health = -1 end game
-        // if (health == 10)
-        //     getApp()->changeState("win");
-        // else if (health == -1)
-        //     getApp()->changeState("end");
+        
+        // Todo Later : When health = -1 end game
+        if (health == 1){
+            this->getApp()->changeState("menu");
+        } 
+        else if (health == -1)
+            getApp()->changeState("lose");
 
 
         // And finally we use the renderer system to draw the scene
@@ -78,24 +81,27 @@ class Playstate: public our::State {
 
     void onImmediateGui() override
     {
-        ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
-        // Box 1
-        ImGui::SetNextWindowPos(ImVec2(20, 20)); // Set position of Box 1
-        ImGui::Begin("HealthName", 0, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoBackground);
-        ImGui::SetWindowSize(ImVec2(250, 80));
-        ImGui::SetWindowFontScale(3.0f);
-        ImGui::TextColored(ImVec4(1.0, 1.0, 1.0, 1.0), "Your Health: ");
-        ImGui::End();
+    ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
 
-        // // Box 2
-        ImGui::SetNextWindowPos(ImVec2(270, 20)); // Set position of Box 2
-        ImGui::Begin("HealthValue", 0, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoBackground);
-        ImGui::SetWindowSize(ImVec2(100, 50));
-        ImGui::SetWindowFontScale(3.0f);
-        ImGui::TextColored(ImVec4(1.0, 1.0, 1.0, 1.0), std::to_string(health).c_str());
-        ImGui::End();
-        ImGui::PopStyleColor();
+    // Health Bar
+    ImGui::SetNextWindowPos(ImVec2(20, 20)); // Set position of Health Bar
+    ImGui::Begin("HealthBar", 0, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoMove);
+    ImGui::SetWindowSize(ImVec2(250, 30));
+
+    // Calculate health percentage
+    float healthPercentage = static_cast<float>(health) / static_cast<float>(10.0f);
+    
+    // Draw health bar
+    ImVec2 barSize = ImVec2(200, 20); // Adjust the width of the health bar
+    ImGui::PushStyleColor(ImGuiCol_PlotHistogram, ImVec4(1.0f, 0.0f, 0.0f, 1.0f)); // Red color for the health bar
+    ImGui::ProgressBar(healthPercentage, barSize);
+    ImGui::PopStyleColor();
+
+    ImGui::End();
+    ImGui::PopStyleColor();
     }
+
+
 
     void onDestroy() override {
         // Don't forget to destroy the renderer
