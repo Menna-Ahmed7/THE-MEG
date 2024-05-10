@@ -93,8 +93,9 @@ namespace our
             // TODO: (Req 8) Delete all the entites and make sure that the containers are empty
             for (auto it = entities.begin(); it != entities.end(); ++it)
             {
-                entities.erase(it);
-                delete *it;
+                cout << "Testing" << endl ;
+                //entities.erase(it);
+                //delete *it;
             }
             // clear all entites
             entities.clear();

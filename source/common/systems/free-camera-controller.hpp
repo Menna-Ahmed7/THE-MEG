@@ -118,23 +118,23 @@ namespace our
             // If the LEFT SHIFT key is pressed, we multiply the position sensitivity by the speed up factor
             if (app->getKeyboard().isPressed(GLFW_KEY_LEFT_SHIFT))
                 current_sensitivity *= controller->speedupFactor;
-
+            float movementSpeed = 5.0f;
             // We change the camera position based on the keys WASD/QE
             // S & W moves the player back and forthqq
             if (app->getKeyboard().isPressed(GLFW_KEY_W))
-                position += front * (deltaTime * current_sensitivity.z);
+                position += front * (deltaTime * current_sensitivity.z*movementSpeed);
             if (app->getKeyboard().isPressed(GLFW_KEY_S))
-                position -= front * (deltaTime * current_sensitivity.z);
+                position -= front * (deltaTime * current_sensitivity.z*movementSpeed);
             // Q & E moves the player up and down
             if (app->getKeyboard().isPressed(GLFW_KEY_Q))
-                position += up * (deltaTime * current_sensitivity.y);
+                position += up * (deltaTime * current_sensitivity.y*movementSpeed);
             if (app->getKeyboard().isPressed(GLFW_KEY_E))
-                position -= up * (deltaTime * current_sensitivity.y);
+                position -= up * (deltaTime * current_sensitivity.y*movementSpeed);
             // A & D moves the player left or right
             if (app->getKeyboard().isPressed(GLFW_KEY_D))
-                position += right * (deltaTime * current_sensitivity.x);
+                position += right * (deltaTime * current_sensitivity.x*movementSpeed);
             if (app->getKeyboard().isPressed(GLFW_KEY_A))
-                position -= right * (deltaTime * current_sensitivity.x);
+                position -= right * (deltaTime * current_sensitivity.x*movementSpeed);
         }
 
         // When the state exits, it should call this function to ensure the mouse is unlocked

@@ -59,8 +59,8 @@ class Playstate: public our::State {
         health = collisionSystem.update(&world, (float)deltaTime);
         
         // Todo Later : When health = -1 end game
-        if (health == 1){
-            this->getApp()->changeState("menu");
+        if (health == 3){
+            getApp()->changeState("win");
         } 
         else if (health == -1)
             getApp()->changeState("lose");
