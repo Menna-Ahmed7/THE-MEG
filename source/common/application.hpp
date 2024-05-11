@@ -74,10 +74,11 @@ namespace our {
         virtual void setupCallbacks();                              // Sets-up the window callback functions from GLFW to our (Mouse/Keyboard) classes.
 
     public:
+    int health=0;
         // Create an application with following configuration
         Application(const nlohmann::json& app_config) : app_config(app_config) {
 
-
+health=0;
         }
         // On destruction, delete all the states
         ~Application(){ for (auto &it : states) delete it.second; }

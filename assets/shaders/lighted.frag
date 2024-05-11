@@ -94,7 +94,7 @@ void main(){
         
         // Compute the specular reflection
         vec3 specular = light.specular * material_specular * pow(max(0, dot(view, reflected)), material_shininess);
-
+//attenuation refers to a vector containing three values that define how the light's intensity weakens with distance. 
         float attenuation = 1;
         if(light.type != DIRECTIONAL){
             // For non-directional lights, compute attenuation based on distance

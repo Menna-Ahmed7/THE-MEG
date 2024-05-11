@@ -61,6 +61,7 @@ namespace our
     class LitMaterial : public TexturedMaterial
     {
     public:
+    //albedo refers to the diffuse color texture of the material.
         Texture2D *albedo;
         Texture2D *specular;
         Texture2D *ambient_occlusion;
