@@ -43,6 +43,9 @@ namespace our
          // Objects used to support lighting
         std::vector<LightComponent*> lightSources;
         LitMaterial* lightMaterial;
+
+        Texture2D *addedTex; //Testtttttttttt
+
     public:
         // Initialize the renderer including the sky and the Postprocessing objects.
         // windowSize is the width & height of the window (in pixels).

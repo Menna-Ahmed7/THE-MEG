@@ -89,6 +89,11 @@ namespace our {
             postprocessShader->attach(config.value<std::string>("postprocess", ""), GL_FRAGMENT_SHADER);
             postprocessShader->link();
 
+            //testttttttttttt
+             if(config.contains("addedTex")){
+                addedTex = texture_utils::loadImage(config.value<std::string>("addedTex", ""));
+            }
+
             // Create a post processing material
             postprocessMaterial = new TexturedMaterial();
             postprocessMaterial->shader = postprocessShader;
@@ -314,10 +319,21 @@ namespace our {
             ///////////////////////////////////
             postprocessMaterial->setup();
             glBindVertexArray(this->postProcessVertexArray);
+
+
+            if(addedTex)
+                cout <<"yaraaaab" << endl;
+            //Test
+            glActiveTexture(GL_TEXTURE1);
+            addedTex->bind();
+            postprocessMaterial->sampler->bind(1);
+            postprocessMaterial->shader->set("additional_sampler", 1);
+
+
             glDrawArrays(GL_TRIANGLES, 0, 3);
             /////////////////////////////////
             // if   there is a light material apply it
-             if (lightMaterial)
+            if (lightMaterial)
             {
                 lightMaterial->setup();
             }
