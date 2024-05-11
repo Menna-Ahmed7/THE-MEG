@@ -94,9 +94,9 @@ namespace our
             postprocessShader->link();
 
             // testttttttttttt
-            if (config.contains("addedTex"))
+            if (config.contains("waterTex"))
             {
-                addedTex = texture_utils::loadImage(config.value<std::string>("addedTex", ""));
+                waterTex = texture_utils::loadImage(config.value<std::string>("waterTex", ""));
             }
 
             // Create a post processing material
@@ -340,14 +340,9 @@ namespace our
             ///////////////////////////////////
             postprocessMaterial->setup();
             glBindVertexArray(this->postProcessVertexArray);
-
-            if (addedTex)
-                cout << "yaraaaab" << endl;
-
-
             //Test
             glActiveTexture(GL_TEXTURE1);
-            addedTex->bind();
+            waterTex->bind();
             postprocessMaterial->sampler->bind(1);
             postprocessMaterial->shader->set("additional_sampler", 1);
             /////////////

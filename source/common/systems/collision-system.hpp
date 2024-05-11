@@ -19,7 +19,6 @@ using namespace std;
 namespace our
 {
 
-    // The free camera controller system is responsible for moving every entity which contains a FreeCameraControllerComponent.
     // This system is added as a slightly complex example for how use the ECS framework to implement logic.
     // For more information, see "common/components/free-camera-controller.hpp"
     class CollisionControllerSystem
@@ -65,6 +64,10 @@ namespace our
                     if (collisionComponent->collisionType=="reward")
                     {
                         health++;
+                        if(health == 10){
+                            health = 0 ;
+                            return 10;
+                        }
                         //Make Shark Smaller
                         SharkEntity->localTransform.scale[0] = SharkEntity->localTransform.scale[0]*1.1 ;
                         SharkEntity->localTransform.scale[1] = SharkEntity->localTransform.scale[1]*1.1 ;

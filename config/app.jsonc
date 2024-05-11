@@ -13,7 +13,7 @@
         "renderer":{
             "sky": "assets/textures/seafloorr.jpg",
             "postprocess": "assets/shaders/postprocess/water.frag",
-            "addedTex": "assets/textures/water-normal.png"
+            "waterTex": "assets/textures/water-normal.png"
         },
         "assets":{
             "shaders":{
@@ -251,9 +251,9 @@
                   {
                     "type": "light",
                     "lightType": "SPOT",
-                    "diffuse": [10, 8, 8],
-                    "specular": [50, 8, 8],
-                    "attenuation": [0.0, 1.0, 0.0],
+                    "diffuse": [0.5, 0.1, 0.1],
+                    "specular": [0, 0,0],
+                    "attenuation": [0.0, 0.1, 0.0],
                     "coneAngles.in": 0,
                     "coneAngles.out": 45
                     
@@ -264,6 +264,24 @@
                   }
                 ]
               },
+              // {
+              //   "position": [0, 200, -200],
+              //   "rotation": [0, 0, 45],
+              //   "components": [
+              //     {
+              //       "type": "light",
+              //       "lightType": "DIRECTIONAL",
+              //       "diffuse": [2, 4, 4],
+              //       "specular": [5, 8, 8],
+              //       "direction": [0, -1, 0]
+              //     },
+              //     {
+              //       "type": "Movement",
+              //       "angularVelocity": [0, 90, 0]
+              //     }
+              //   ]
+              // }
+              // ,
               //SmallFish1
               {
                 "name" : "small-fish",
@@ -289,7 +307,7 @@
                            // SmallFish2
               {
                 "name" : "small-fish",
-                "position": [30, -20, -200],
+                "position": [30, -20, -600],
                 "rotation": [-180, 180, 200],
                 "scale": [1.5, 1, 1],
                 "components": [
@@ -312,7 +330,7 @@
                             //SmallFish3
               {
                 "name" : "small-fish",
-                "position": [-25, -6, -150],
+                "position": [-25, -6, -750],
                 "rotation": [-180, 180, 200],
                 "scale": [1.5, 1, 1],
                 "components": [
@@ -336,7 +354,7 @@
                             //SmallFish4
               {               
                 "name" : "small-fish",
-                "position": [-80, -6, -80],
+                "position": [-80, -6, -680],
                 "rotation": [-180, 180, 200],
                 "scale": [1.5, 1, 1],
                 "components": [
@@ -359,7 +377,7 @@
                             //SmallFish5
               {
                 "name" : "small-fish",
-                "position": [50, -6, -30],
+                "position": [50, -6, -720],
                 "rotation": [-180, 180, 200],
                 "scale": [1.5, 1, 1],
                 "components": [
@@ -475,7 +493,7 @@
                             //SmallFish10
               {
                 "name" : "small-fish",
-                "position": [0, -6, -200],
+                "position": [0, -6, -550],
                 "rotation": [-180, 180, 200],
                 "scale": [1.5, 1, 1],
                 "components": [
@@ -496,7 +514,7 @@
                             //SmallFish11
               {
                 "name" : "small-fish",
-                "position": [12, -6, -267],
+                "position": [12, -6, -667],
                 "rotation": [-180, 200, 200],
                 "scale": [1.5, 1, 1],
                 "components": [
@@ -516,7 +534,7 @@
               },
               {
                 "name" : "small-fish",
-                "position": [9, 2, -200],
+                "position": [9, 2, -620],
                 "rotation": [-180, 200, 200],
                 "scale": [1.5, 1, 1],
                 "components": [
@@ -1426,9 +1444,1162 @@
                     "collisionType" : "penalty"
                   }
                 ]
+              }, 
+
+              /////////////////////////////////Fish In The back Side/////////////////////////////////////////////
+              {
+                "name" : "small-fish",
+                "position": [0, 0, 60],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5,1, 1.5],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  }
+                  ,
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , -4]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              // SmallFish9
+              {
+                "name" : "small-fish",
+                "position": [15, -6, 100],
+                "rotation": [ -180, 1, 200],
+                "scale": [1, 0.5,0.5],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  }
+                  ,
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , -4]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+                            
+                            //SmallFish10
+              {
+                "name" : "small-fish",
+                "position": [0, -6, 50],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , -2]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+                            //SmallFish11
+              {
+                "name" : "small-fish",
+                "position": [12, -6, 167],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , -5]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              {
+                "name" : "small-fish",
+                "position": [9, 2, 220],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , -5]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              {
+                "name" : "small-fish",
+                "position": [-72, 6, 267],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [0, 0 , -5]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [-33, -20, 70],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [1, 0 , -5]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [15, -20, 125],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [1, 0 , -5]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [77, -5, 145],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [1, 0 , -5]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [-49, 5, 167],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [1, 0 , -5]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              {
+                "name" : "small-fish",
+                "position": [-4, 5, 65],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [1, 0 , -12]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              {
+                "name" : "small-fish",
+                "position": [0, 5, 345],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [1, 0 , -15]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [-69, 27, 195],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [3, 0 , -10]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [15, 20, 230],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [2, 0 , -7]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              {
+                "name" : "small-fish",
+                "position": [35, 20, 130],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [2, 0 , -7]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
               }
-              
-             
+              ,
+              {
+                "name" : "small-fish",
+                "position": [35, 20, 230],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [2, 0 , -3]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              }
+              ,
+              /////////////////////////////////Move To Left Side //////////////////////////////////
+              {
+                "name" : "small-fish",
+                "position": [0, 0, -50],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-5, 0 , 0]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [170, -45, -177],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-9, 0 , 1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [-660, 15, -282],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-10, 0 , 2]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [450, -20, 45],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-8, 0 , 1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },{
+                "name" : "small-fish",
+                "position": [330, -7, 70],
+                "rotation": [ -180, 1, 200],
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-11, 0 , -5]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [150, -2, 125],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-15, 0 , 2]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [770, -5, 145],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [12, 0 , 0]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [-49, -10, 167],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-11, 0 , 0]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              {
+                "name" : "small-fish",
+                "position": [-40, -5, 655],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-11, 2 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              {
+                "name" : "small-fish",
+                "position": [0, -5, 345],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-6, 0 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [-69, 7, 195],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-13, 0 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [15, 0, 230],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-6, 0 , 0]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              {
+                "name" : "small-fish",
+                "position": [35, 20, 130],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-13, 0 , -2]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              }
+              ,
+              {
+                "name" : "small-fish",
+                "position": [35, 0, 230],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-7, 0 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              {
+                "name" : "angler-fish",
+                "position": [-5, 0, -50],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Angler",    
+                    "material": "Angler"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-7, 0 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "penalty"
+                  }
+                ]
+              },
+              {
+                "name" : "angler-fish",
+                "position": [-5, 0, -250],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Angler",    
+                    "material": "Angler"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-7, 0 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "penalty"
+                  }
+                ]
+              },
+              {
+                "name" : "angler-fish",
+                "position": [5, -2, -350],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Angler",    
+                    "material": "Angler"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-7, 0 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "penalty"
+                  }
+                ]
+              },
+              {
+                "name" : "angler-fish",
+                "position": [-50, 0, -750],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Angler",    
+                    "material": "Angler"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-7, 0 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "penalty"
+                  }
+                ]
+              },
+              {
+                "name" : "angler-fish",
+                "position": [0, 20, -440],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Angler",    
+                    "material": "Angler"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-7, 0 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "penalty"
+                  }
+                ]
+              },
+              {
+                "name" : "angler-fish",
+                "position": [0 , 10, -500],
+                "rotation": [-180, 100, 200], // To LEft 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Angler",    
+                    "material": "Angler"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-7, 0 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "penalty"
+                  }
+                ]
+              }
+              ,
+              /////////////////////////////////Move To right Side //////////////////////////////////
+              {
+                "name" : "small-fish",
+                "position": [-20, -35, -75],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [5, 0 , 0]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [270, -5, 177],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [9, 0 , 1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [-600, 15, -262],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [10, 0 , 2]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [400, -4, 450],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [8, 0 , 1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },{
+                "name" : "small-fish",
+                "position": [230, 0, 110],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [11, 0 , -5]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [170, 20, 135],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [5, 0 , 2]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [570, -5, 105],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [12, 0 , 0]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [-150, 5,267],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [11, 0 , 0]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              {
+                "name" : "small-fish",
+                "position": [-80, 10, 855],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [11, 2 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              {
+                "name" : "small-fish",
+                "position": [200, -5, 345],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [6, 0 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [-690, -27, 295],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [-13, 0 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              //Small Fish
+              {
+                "name" : "small-fish",
+                "position": [15, -2, 230],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [6, 0 , 0]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              {
+                "name" : "small-fish",
+                "position": [350, 9, 140],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [13, 0 , -2]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              }
+              ,
+              {
+                "name" : "small-fish",
+                "position": [350, 0, 990],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "SmallFish",    
+                    "material": "SmallFish"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [7, 0 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "reward"
+                  }
+                ]
+              },
+              {
+                "name" : "angler-fish",
+                "position": [5, 0, -500],
+                "rotation": [-180, 270, 200], // To right 
+                 "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Angler",    
+                    "material": "Angler"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [7, 0 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "penalty"
+                  }
+                ]
+              },
+              {
+                "name" : "angler-fish",
+                "position": [-56, 0, -80],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Angler",    
+                    "material": "Angler"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [15, 0 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "penalty"
+                  }
+                ]
+              },
+              {
+                "name" : "angler-fish",
+                "position": [-110, -2, -320],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Angler",    
+                    "material": "Angler"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [12, 0 , -1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "penalty"
+                  }
+                ]
+              },
+              {
+                "name" : "angler-fish",
+                "position": [-100, 34, -720],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Angler",    
+                    "material": "Angler"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [3, 0 , 0]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "penalty"
+                  }
+                ]
+              },
+              {
+                "name" : "angler-fish",
+                "position": [0, -30, -540],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Angler",    
+                    "material": "Angler"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [5, 0 , 1]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "penalty"
+                  }
+                ]
+              },
+              {
+                "name" : "angler-fish",
+                "position": [420 , 10, -590],
+                "rotation": [-180, 270, 200], // To right 
+                "scale": [1.5, 1, 1],
+                "components": [
+                  {
+                    "type": "Mesh Renderer",
+                    "mesh": "Angler",    
+                    "material": "Angler"
+                  },
+                  {
+                    "type": "Movement",
+                    "linearVelocity": [7, 0 , -2]
+                  },{
+                    "type": "Collision",
+                    "collisionType" : "penalty"
+                  }
+                ]
+              }
         ]
     }
 }

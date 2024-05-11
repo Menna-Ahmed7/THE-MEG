@@ -8,9 +8,11 @@
 #include <systems/movement.hpp>
 #include <asset-loader.hpp>
 #include <systems/collision-system.hpp>
+#include <systems/regulator-system.hpp>
+
 
 #include <iostream>
-#include <unistd.h>
+// #include <unistd.h>
 using namespace std;
 
 // This state shows how to use the ECS framework and deserialization.
@@ -22,6 +24,7 @@ class Playstate : public our::State
     our::FreeCameraControllerSystem cameraController;
     our::MovementSystem movementSystem;
     our::CollisionControllerSystem collisionSystem;
+    our::RegulatorControllerSystem regulatorSystem;
     int health;
     bool grey_effect;
 
@@ -54,6 +57,7 @@ class Playstate : public our::State
         // We initialize the camera controller system since it needs a pointer to the app
         cameraController.enter(getApp());
         collisionSystem.enter(getApp());
+        regulatorSystem.enter(getApp());
         // Then we initialize the renderer
         grey_effect = false;
         auto size = getApp()->getFrameBufferSize();
@@ -65,6 +69,7 @@ class Playstate : public our::State
         // Here, we just run a bunch of systems to control the world logic
         movementSystem.update(&world, (float)deltaTime);
         cameraController.update(&world, (float)deltaTime);
+        regulatorSystem.update(&world, (float)deltaTime);
         health = collisionSystem.update(&world, (float)deltaTime);
 
         // Todo Later : When health = -1 end game
@@ -77,7 +82,7 @@ class Playstate : public our::State
             grey_effect = true;
             renderer.render(&world, grey_effect);
 
-            sleep(2);
+            // sleep(2);
             getApp()->changeState("lose");
         }
 

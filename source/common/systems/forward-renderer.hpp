@@ -44,7 +44,7 @@ namespace our
         std::vector<LightComponent*> lightSources;
         LitMaterial* lightMaterial;
 
-        Texture2D *addedTex; //Testtttttttttt
+        Texture2D *waterTex; 
 
     public:
         // Initialize the renderer including the sky and the Postprocessing objects.

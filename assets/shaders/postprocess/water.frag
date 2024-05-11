@@ -5,7 +5,7 @@ in vec2 tex_coord;
 // Sample colors of the object
 uniform sampler2D tex;
 // Make effect look like being under water
-uniform sampler2D additional_sampler; // (underWater_sampler)
+uniform sampler2D additional_sampler; 
 
 out vec4 frag_color;
 
