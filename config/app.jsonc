@@ -1099,7 +1099,7 @@
               //Angler1
               ,{
                 "name" : "angler-fish",
-                "position": [-5, -20, -50],
+                "position": [-30, -20, -50],
                 "rotation": [-180, 100, 200],
                 "scale": [1.5, 1, 1],
                 "components": [
@@ -1141,7 +1141,7 @@
                                           //Angler1
               ,{
                 "name" : "angler-fish",
-                "position": [15, 0, -40],
+                "position": [50, 0, -40],
                 "rotation": [-180, 100, 200],
                 "scale": [3.5, 2, 3],
                 "components": [
@@ -1161,7 +1161,7 @@
               }
               ,{
                 "name" : "angler-fish",
-                "position": [20, -20, -70],
+                "position": [65, -20, -70],
                 "rotation": [-180, 100, 200],
                 "scale": [3.5, 2, 3],
                 "components": [
@@ -1199,7 +1199,7 @@
                 ]
               },{
                 "name" : "angler-fish",
-                "position": [0, 10, -90],
+                "position": [-50, 10, -90],
                 "rotation": [-180, 100, 200],
                 "scale": [3.5, 2, 3],
                 "components": [
