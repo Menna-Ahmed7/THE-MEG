@@ -73,6 +73,10 @@ namespace our
                     else if (collisionComponent->collisionType=="penalty")
                     {
                         health--;
+                        if ( health == -1){
+                            health = 0 ;
+                            return -1;
+                        }
                         //Make Shark Smaller
                         SharkEntity->localTransform.scale[0] = SharkEntity->localTransform.scale[0]*0.9 ;
                         SharkEntity->localTransform.scale[1] = SharkEntity->localTransform.scale[1]*0.9 ;

@@ -24,6 +24,8 @@ class Playstate: public our::State {
 
     void onInitialize() override {
         
+
+        cout << "Test the state" << endl;
         std::string gameMode = "config/game.jsonc";
         std::ifstream file_in(gameMode);
         if (!file_in)
@@ -59,11 +61,14 @@ class Playstate: public our::State {
         health = collisionSystem.update(&world, (float)deltaTime);
         
         // Todo Later : When health = -1 end game
-        if (health == 3){
+        if (health == 10){
             getApp()->changeState("win");
         } 
-        else if (health == -1)
-            getApp()->changeState("lose");
+        else if (health == -1){
+           getApp()->changeState("lose");
+
+        }
+            
 
 
         // And finally we use the renderer system to draw the scene

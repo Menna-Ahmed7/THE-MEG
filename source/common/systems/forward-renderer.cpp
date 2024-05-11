@@ -321,8 +321,7 @@ namespace our {
             glBindVertexArray(this->postProcessVertexArray);
 
 
-            if(addedTex)
-                cout <<"yaraaaab" << endl;
+
             //Test
             glActiveTexture(GL_TEXTURE1);
             addedTex->bind();
