@@ -1,15 +1,20 @@
 #version 330
 
-uniform vec3 eye;    // Eye position (camera position)
+uniform vec3 eye;    // camera position
+//VP: View-projection matrix, which transforms vertices from world space to clip space 
+//M: Model matrix, which transforms vertices from object space to world space.
+//M_IT: Inverse transpose of the model matrix, used for transforming normals correctly.
 uniform mat4 VP;     // View-projection matrix
 uniform mat4 M;      // Model matrix
 uniform mat4 M_IT;   // Inverse-transpose of the model matrix
 
+//input variables
 layout(location=0) in vec3 position;      // Vertex position input
 layout(location=1) in vec4 color;         // Vertex color input
 layout(location=2) in vec2 tex_coord;     // Texture coordinate input
 layout(location=3) in vec3 normal;        // Vertex normal input
 
+//output variables
 out Varyings {
     vec4 color;         // Output color to fragment shader
     vec2 tex_coord;     // Output texture coordinate to fragment shader
