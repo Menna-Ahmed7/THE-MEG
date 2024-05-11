@@ -25,8 +25,8 @@ class Playstate : public our::State
     int health;
     bool grey_effect;
 
-    void onInitialize() override {
-        
+    void onInitialize() override
+    {
 
         cout << "Test the state" << endl;
         std::string gameMode = "config/game.jsonc";
@@ -68,15 +68,18 @@ class Playstate : public our::State
         health = collisionSystem.update(&world, (float)deltaTime);
 
         // Todo Later : When health = -1 end game
-        if (health == 10){
+        if (health == 10)
+        {
             getApp()->changeState("win");
-        } 
-        else if (health == -1){
-           getApp()->changeState("lose");
-
         }
-            
+        else if (health == -1)
+        {
+            grey_effect = true;
+            renderer.render(&world, grey_effect);
 
+            sleep(2);
+            getApp()->changeState("lose");
+        }
 
         // And finally we use the renderer system to draw the scene
         renderer.render(&world, grey_effect);
