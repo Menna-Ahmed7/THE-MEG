@@ -347,7 +347,7 @@ namespace our
             postprocessMaterial->shader->set("additional_sampler", 1);
             /////////////
             ShaderProgram *postprocessShader = new ShaderProgram();
-            // attach the vertex shader
+            // attach the vertex shaderr
             postprocessShader->attach("assets/shaders/fullscreen.vert", GL_VERTEX_SHADER);
 
             // attach the fragment shader based on the effect type (fish eye or blur or power up or radial blur or vignette)

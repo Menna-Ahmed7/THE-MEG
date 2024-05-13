@@ -98,28 +98,28 @@ class Playstate : public our::State
             getApp()->changeState("menu");
         }
     }
+void onImmediateGui() override
+{
+    ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
 
-    void onImmediateGui() override
-    {
-        ImGui::PushStyleColor(ImGuiCol_WindowBg, ImVec4(0.0f, 0.0f, 0.0f, 0.0f));
+    // Health Bar
+    ImGui::SetNextWindowPos(ImVec2(20, 20)); // Set position of Health Bar
+    ImGui::Begin("HealthBar", 0, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoMove);
+    ImGui::SetWindowSize(ImVec2(500, 30)); // Double the width of the window
 
-        // Health Bar
-        ImGui::SetNextWindowPos(ImVec2(20, 20)); // Set position of Health Bar
-        ImGui::Begin("HealthBar", 0, ImGuiWindowFlags_NoDecoration | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoMove);
-        ImGui::SetWindowSize(ImVec2(250, 30));
+    // Calculate health percentage
+    float healthPercentage = static_cast<float>(health) / static_cast<float>(10.0f);
 
-        // Calculate health percentage
-        float healthPercentage = static_cast<float>(health) / static_cast<float>(10.0f);
+    // Draw health bar
+    ImVec2 barSize = ImVec2(400, 20);                                              // Double the width of the health bar
+    ImGui::PushStyleColor(ImGuiCol_PlotHistogram, ImVec4(1.0f, 0.0f, 0.0f, 1.0f)); // Red color for the health bar
+    ImGui::ProgressBar(healthPercentage, barSize);
+    ImGui::PopStyleColor();
 
-        // Draw health bar
-        ImVec2 barSize = ImVec2(200, 20);                                              // Adjust the width of the health bar
-        ImGui::PushStyleColor(ImGuiCol_PlotHistogram, ImVec4(1.0f, 0.0f, 0.0f, 1.0f)); // Red color for the health bar
-        ImGui::ProgressBar(healthPercentage, barSize);
-        ImGui::PopStyleColor();
+    ImGui::End();
+    ImGui::PopStyleColor();
+}
 
-        ImGui::End();
-        ImGui::PopStyleColor();
-    }
 
     void onDestroy() override
     {

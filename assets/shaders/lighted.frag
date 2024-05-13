@@ -30,11 +30,11 @@ uniform Sky sky;
 
 // Struct to represent the material
 struct Material {
-    sampler2D albedo;               // Albedo texture
-    sampler2D specular;             // Specular texture
-    sampler2D ambient_occlusion;    // Ambient occlusion texture
-    sampler2D roughness;            // Roughness texture
-    sampler2D emissive;             // Emissive texture
+    sampler2D albedo;              
+    sampler2D specular;             
+    sampler2D ambient_occlusion;    
+    sampler2D roughness;           
+    sampler2D emissive;             
 };
 
 uniform Material material;
@@ -94,7 +94,7 @@ void main(){
         
         // Compute the specular reflection
         vec3 specular = light.specular * material_specular * pow(max(0, dot(view, reflected)), material_shininess);
-//attenuation refers to a vector containing three values that define how the light's intensity weakens with distance. 
+        //attenuation refers to a vector containing three values that define how the light's intensity weakens with distance. 
         float attenuation = 1;
         if(light.type != DIRECTIONAL){
             // For non-directional lights, compute attenuation based on distance
