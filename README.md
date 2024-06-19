@@ -40,7 +40,7 @@ score. Along the way, it aims to eat smaller fish while avoiding poisoned fish
   <tr>
     <td align="center">
     <a href="https://github.com/Menna-Ahmed7" target="_black">
-    <img src="https://avatars.githubusercontent.com/u/110634473?v=4" width="150px;" alt="Mennatallah Ahmed"/>
+    <img src="https://avatars.githubusercontent.com/u/110634473?v=4" width="150px;" alt="https://github.com/Menna-Ahmed7"/>
     <br />
     <sub><b>Mennatallah Ahmed</b></sub></a>
     </td>
@@ -52,13 +52,13 @@ score. Along the way, it aims to eat smaller fish while avoiding poisoned fish
     </td>
     <td align="center">
     <a href="https://github.com/MohammadAlomar8" target="_black">
-    <img src="https://avatars.githubusercontent.com/u/119791309?v=4" width="150px;" alt="norhan reda"/>
+    <img src="https://avatars.githubusercontent.com/u/119791309?v=4" width="150px;" alt="https://github.com/MohammadAlomar8"/>
     <br />
     <sub><b>Mohammed Alomar</b></sub></a>
     </td>
     <td align="center">
     <a href="https://github.com/mou-code" target="_black">
-    <img src="https://avatars.githubusercontent.com/u/123744354?v=4" width="150px;" alt="HodaGamal"/>
+    <img src="https://avatars.githubusercontent.com/u/123744354?v=4" width="150px;" alt="https://github.com/mou-code"/>
     <br />
     <sub><b>Moustafa Mohammed</b></sub></a>
     </td>
